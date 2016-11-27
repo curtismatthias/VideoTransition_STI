@@ -1,10 +1,12 @@
-//#include "opencv2/core/core.hpp"
-//#include "opencv2/highgui.hpp"
-//#include "opencv2/opencv.hpp"
-
 #include <iostream>
 #include "GetFile.h"
+#include "ImageHelper.h"
+#include "core.hpp"
+#include "highgui.hpp"
+#include "opencv.hpp"
+
 using namespace std;
+using namespace cv;
 
 int main() {
 	cout << "Please select a file to load:" << endl;
@@ -16,5 +18,5 @@ int main() {
 		return EXIT_FAILURE;
 	}
 
-	//VideoCapture vc = VideoCapture(videoFilename);
+	VideoCapture vc = VideoCapture(videoFilename);
 }
