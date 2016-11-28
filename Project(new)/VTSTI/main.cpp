@@ -13,7 +13,7 @@ using namespace cv;
 int main() {
 
 	// video source
-	string filename = "test4.mp4";
+	string filename = "test3.mp4";
 	VideoCapture cap(filename);
 
 	// video specifications
