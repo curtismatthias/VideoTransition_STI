@@ -1,3 +1,12 @@
+////////////////////////////////////////////////
+//                                            //
+//    CMPT 365 - PROJECT                      //
+//                                            //
+//    AUTHORS: BEAU GRIER, CURTIS MATTHIAS    //
+//                                            //
+////////////////////////////////////////////////
+
+
 #include <iostream>
 #include <algorithm>
 #include <vector>
@@ -8,6 +17,36 @@
 
 using namespace std;
 using namespace cv;
+
+
+// converts a pixel from colour to chromaticity
+Vec3b chromaticityConvert(Vec3b pixel){
+
+	Vec3b chromaPixel;
+
+	if(pixel[0] == 0 && pixel[1] == 0 && pixel[2] == 0){ // handles black pixel values
+		chromaPixel = pixel;
+	}
+	else{
+		// extract RGB values from pixel
+		double r = pixel[2];
+		double g = pixel[1];
+		double b = pixel[0];
+
+		// convert RGB to chromaticity colour-space
+		double sum = (r + g + b);
+		double chromaR = (r / sum);
+		double chromaG = (g / sum);
+		double chromaB = (b / sum);
+
+		// convert from [0,..,1] to [0,...,255]
+		chromaPixel[2] = chromaR*255;
+		chromaPixel[1] = chromaG*255;
+		chromaPixel[0] = chromaB*255;
+	}
+
+	return chromaPixel;
+}
 
 
 int main() {
@@ -71,7 +110,8 @@ int main() {
 	// loop through every frame of the video source
 	while(waitKey(30) != 27 && totalFrames>3){
 		cap >> frame;
-		imshow("Video Source", frame);
+
+		imshow("Video Source", frame); // display video source
 		totalFrames--;
 
 		// loop through all pixels in column/row
@@ -102,3 +142,4 @@ int main() {
 
 	return 0;
 }
+// END
