@@ -1,6 +1,19 @@
-CMPT 365 - Project
 Video Transitions Spatio-Temporal Images
-Authors: Beau Grier, Curtis Matthias
+Authors: Curtis Matthias, Beau Grier
+
+Used to create spatio-temporal images (STIs) of a video file. These images can identify video
+scene transitions (cut, wipe, dissolve) of the video source.
+
+Multiple type of spatio-temportal images are availble:
+- Verticle STI using columns of video frames
+- Horizonal STI using rows of video frames
+- STI by histogram differences
+
+
+
+DEMO VIDEO:
+https://www.dropbox.com/s/ysf8sxm9xk5h92y/VTSTI_Demo.flv?dl=0
+
 
 
 TO RUN:
