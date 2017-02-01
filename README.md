@@ -1,1 +1,0 @@
-# VideoTransition_STI
